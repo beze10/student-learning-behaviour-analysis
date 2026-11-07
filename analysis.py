@@ -209,12 +209,9 @@ print("Cleaned dataset shape:", df_clean.shape)
 
 
 
-#-------------------------------------------------------
-# PART 4 - DATA VISUALISATION
-#-------------------------------------------------------
 
 
-#SCATTER PLOT
+#Scatter plot below
 
 #This creates a scatter plot comparing study hours and past performance
 plt.figure(figsize=(10, 6))
@@ -257,7 +254,7 @@ plt.savefig("study_hours_scatter.png", dpi=300, bbox_inches="tight")
 
 
 
-#HISTOGRAM
+#Histogram below
 
 #This creates a histogram showing the distribution of quiz participation
 plt.figure(figsize=(10, 6))
@@ -287,7 +284,7 @@ plt.savefig("quiz_participation_histogram.png", dpi=300, bbox_inches="tight")
 
 
 
-#BAR CHART
+#Bar chart
 
 #This calculates the average engagement score for students based on course completion
 average_engagement = df_clean.groupby(
@@ -315,7 +312,7 @@ plt.bar(
 plt.title("Average Student Engagement by Course Completion")
 plt.xlabel("Course Completion Status")
 plt.ylabel("Average Engagement Score")
-plt.legend()
+
 
 
 #This sets the engagement scale between 0 and 1
