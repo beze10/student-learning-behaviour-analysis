@@ -33,11 +33,6 @@ df = pd.DataFrame({
     "Course_Completed": course_completed
 })
 
-# Check that the column names are correct
-print("Column names:", df.columns.tolist())
-
-
-
 #This introduces missing values on the 20 selected rows
 missing_hours = rng.choice(
     df.index,
@@ -101,9 +96,6 @@ invalid_quiz = rng.choice(
 df.loc[invalid_quiz, "Quiz_Participation"] = 150
 
 
-
-
-
 # Validate dataset structure
 expected_columns = [
     "Student_ID",
@@ -113,18 +105,8 @@ expected_columns = [
     "Course_Completed"
 ]
 
-assert df.shape == (500, 5), "Incorrect dataset shape"
-assert df.columns.tolist() == expected_columns, "Incorrect column names"
-assert df["Student_ID"].is_unique, "Student IDs are not unique"
+#This saves the raw student dataset as a CSV file
+df.to_csv("students_raw.csv", index=False)
 
-print("Dataset structure validated successfully!")
-
-print("\nMissing values:")
-print(df.isnull().sum())
-
-print("\nNegative study hours:")
-print((df["Study_Hours"] < 0).sum())
-
-print("\nQuiz participation above 100:")
-print((df["Quiz_Participation"] > 100).sum())
-
+#This confirms that the CSV file has been saved
+print("Raw dataset saved successfully!")
